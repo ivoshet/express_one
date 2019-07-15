@@ -1,0 +1,20 @@
+{
+  "name": "third",
+  "version": "1.0.0",
+  "description": "one more project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "ivoshet",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
