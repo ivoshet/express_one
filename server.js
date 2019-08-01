@@ -11,7 +11,11 @@ let app = express();
 const settingApp = app => {
   app.set('port', process.env.PORT || 3300);
   app.set('views', path.join(__dirname, '/views'));
-  app = config(app);
+  try {
+    app = config(app);
+  } catch (e) {
+    console.log(`error in config calling: ${e}`);
+  }
   return app;
 };
 
@@ -19,7 +23,11 @@ const settingApp = app => {
  * @description main function
  */
 const server = () => {
-  settingApp(app);
+  try {
+    settingApp(app);
+  } catch (e) {
+    console.log(`error settingApp: ${e}`);
+  }
   app.listen(app.get('port'), () => {
     console.log(`server work ${app.get('port')}`);
   });

@@ -14,7 +14,7 @@ module.exports = app => {
       defaultLayout: 'main',
       layoutsDir: path.join(app.get('views'), '/layouts'),
       partialsDir: path.join(app.get('views'), '/partials'),
-    }).engine
+    })
   );
   app.set('view engine', 'hbs');
   //call routing
