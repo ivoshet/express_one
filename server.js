@@ -11,8 +11,8 @@ let app = express();
 const settingApp = app => {
   app.set('port', process.env.PORT || 3300);
   app.set('views', path.join(__dirname, '/views'));
+  app = config(app);
   return app;
-  // app = config(app);
 };
 
 /**
