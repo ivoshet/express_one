@@ -20,5 +20,15 @@
     <input type="text" name="name" id="">
     <label for="email">E-mail:</label>
     <input type="text" name="email" id="">
+    <label for="comment">Comment:</label>
+    <textarea name="comment" id="" rows="2"></textarea>
+    <button type="submit" id="comment-btn"></button>
   </form>
+  <ul>
+    {{ #each comments }}
+    <li>
+      {{ comment}}
+    </li>
+    {{ /each }}
+  </ul>
 </div>
