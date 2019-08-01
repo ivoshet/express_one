@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <h3>{{ image.title }}</h3>
+    <p>{{ image.description }}</p>
+    <div>
+      <img src="/public/upload/{{ image.filename }}" alt="">
+    </div>
+    <div>
+      <button id="btn-like" data-id="{{image.uniqueId}}">Like</button>
+    </div>
+    <p>{{ image.views }}</p>
+    <p>Posted: {{ timeago image.timestamp }}</p>
+  </div>
+  <div>
+    <p>Comments:</p>
+    <button id="btn-comment" data-id="{{ image.uniqueId }}">Post comments</button>
+  </div>
+  <form method="POST" action="/images/{{ image.uniqueId }}/comment">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="">
+    <label for="email">E-mail:</label>
+    <input type="text" name="email" id="">
+  </form>
+</div>

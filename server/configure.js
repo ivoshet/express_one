@@ -5,6 +5,7 @@
 const hbs = require('express-handlebars');
 const path = require('path');
 const routes = require('./routes');
+const express = require('express');
 
 module.exports = app => {
   app.engine(
@@ -18,6 +19,6 @@ module.exports = app => {
   );
   app.set('view engine', 'hbs');
   //call routing
-  routes.initialize(app);
+  routes.initialize(app, new express.Router());
   return app;
 };

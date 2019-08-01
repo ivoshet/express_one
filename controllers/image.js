@@ -3,7 +3,7 @@ module.exports = {
     res.send('index image controller');
   },
   create: (req, res) => {
-    res.send('creat image controller');
+    res.send('create image controller');
   },
   comment: (req, res) => {
     res.send('comment image controller');

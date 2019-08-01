@@ -11,6 +11,12 @@ let app = express();
 const settingApp = app => {
   app.set('port', process.env.PORT || 3300);
   app.set('views', path.join(__dirname, '/views'));
+  //setting static files
+  app.use('/public/', express.static(path.join(__dirname, '../public')));
+  //error handler
+  if ('development' === app.get('env')) {
+    app.use(errorHandler);
+  }
   try {
     app = config(app);
   } catch (e) {
@@ -18,9 +24,17 @@ const settingApp = app => {
   }
   return app;
 };
+/**
+ * @description error handler function
+ */
+const errorHandler = (err, req, res, next) => {
+  res.status(500);
+  res.render('error', { error: err });
+};
 
 /**
  * @description main function
+ * app.listen  - is calling server
  */
 const server = () => {
   try {
@@ -28,6 +42,7 @@ const server = () => {
   } catch (e) {
     console.log(`error settingApp: ${e}`);
   }
+  //call server
   app.listen(app.get('port'), () => {
     console.log(`server work ${app.get('port')}`);
   });
