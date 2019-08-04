@@ -1,26 +1,25 @@
 <div>
   <div>
-    <h3>Upload image</h3>
+    <h3>upload files</h3>
   </div>
   <div>
-    <form action="/images" method="POST" enctype="multipart/form-data">
-      <label for="file">browse:</label>
-      <input type="file" name="file" id="">
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="">
-      <label for="description">description:</label>
-      <textarea name="description" id="" rows="2"></textarea>
-      <button type="submit" id="login_btn">Upload image</button>
+    <form action="/image" method="POST" enctype="multipart/form-data">
+      <p>
+        <input type="file" name="file" id="">
+      </p>
+      <p>
+        <button type="submit" id="submit_btn">
+          upload image
+        </button>
+      </p>
     </form>
   </div>
   <div>
-    <h3>Newest images</h3>
-  </div>
-  <div>
-    {{#each images}}
+    <p>Newest images</p>
+    {{#each image}}
     <div>
-      <a href="/images/{{uniqueId}}">
-        <img src="/public/upload/{{filename}}" alt="">
+      <a href="/public/img/{{uniqueId}}">
+        <img src="/public/upload/{{filename}}" alt="{{title}}">
       </a>
     </div>
     {{/each}}

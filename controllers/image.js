@@ -1,6 +1,6 @@
 module.exports = {
   index: (req, res) => {
-    res.send('index image controller');
+    res.render('image');
   },
   create: (req, res) => {
     res.send('create image controller');
